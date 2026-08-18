@@ -19,7 +19,6 @@ router = APIRouter(
 # GitHub Login
 # ============================================================
 
-@router.get("/github")
 @router.get("/github/login")
 async def github_login(request: Request):
     """

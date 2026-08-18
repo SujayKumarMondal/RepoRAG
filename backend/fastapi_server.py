@@ -129,53 +129,6 @@ app = FastAPI(
     title="RepoRAG",
     description="""
 # RepoRAG — AI Codebase Intelligence Engine
-
-RepoRAG is an AI-powered codebase intelligence backend that allows
-developers to connect GitHub repositories and ask questions about
-their entire codebase.
-
-## Core capabilities
-
-- GitHub OAuth authentication
-- GitHub repository discovery
-- Repository ingestion
-- Source-code parsing
-- AST-aware analysis
-- Code chunking
-- Symbol extraction
-- Import analysis
-- Embedding generation
-- PostgreSQL + pgvector semantic search
-- Hybrid code search
-- Dependency graph generation
-- Repository analysis
-- RAG-powered codebase questions
-- AI-generated explanations
-
-## Architecture
-
-GitHub Repository
-→ Repository Ingestion
-→ Source Code Parsing
-→ AST Analysis
-→ Code Chunking
-→ Embeddings
-→ PostgreSQL + pgvector
-→ Retrieval
-→ Reranking
-→ Context Building
-→ LLM
-→ AI Codebase Answer
-
-## AI Stack
-
-- LLM: Groq
-- Embeddings: Gemini
-- Vector Database: PostgreSQL + pgvector
-- Cache / Queue: Redis
-- Code Parser: Tree-sitter / AST
-- Repository Provider: GitHub API
-- Backend: FastAPI
 """,
     version="0.1.0",
     docs_url="/docs",
