@@ -92,6 +92,27 @@ async def github_callback(
             access_token
         )
 
+        if not github_user.get("email"):
+            github_emails = await github_client.get_user_emails(
+                access_token
+            )
+            usable_emails = [
+                email
+                for email in github_emails
+                if email.get("email") and email.get("verified")
+            ]
+            primary_email = next(
+                (
+                    email["email"]
+                    for email in usable_emails
+                    if email.get("primary")
+                ),
+                None,
+            )
+            github_user["email"] = primary_email or (
+                usable_emails[0]["email"] if usable_emails else None
+            )
+
         async with AsyncSessionLocal() as db:
             result = await db.execute(
                 select(User).where(

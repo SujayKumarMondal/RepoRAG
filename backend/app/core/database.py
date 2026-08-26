@@ -91,7 +91,7 @@ if "?" in DATABASE_URL:
 
 engine = create_async_engine(
     DATABASE_URL,
-    echo=settings.APP_ENV == "development",
+    echo=False,
     pool_pre_ping=True,
     pool_recycle=1800,
 
